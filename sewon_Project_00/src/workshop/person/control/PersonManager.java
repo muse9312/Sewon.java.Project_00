@@ -10,55 +10,55 @@ public class PersonManager {
 
 	public static void main(String[] args) {
 
-//		PersonManager.java : PersonÀÇ Á¤º¸¸¦ ´ã´Â Å¬·¡½º
-//		1) package´Â workshop.person.control ÀÌ´Ù.
-//		2) PersonEntity Å¬·¡½º¸¦ import ÇÑ´Ù.
+//		PersonManager.java : Personï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½
+//		1) packageï¿½ï¿½ workshop.person.control ï¿½Ì´ï¿½.
+//		2) PersonEntity Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ import ï¿½Ñ´ï¿½.
 
 		PersonEntity[] persons = new PersonEntity[10];
 
 		PersonManager pManager = new PersonManager();
 
-		System.out.println(" @@@ ÀÎ¹° Á¤º¸ Á¶È¸ ½Ã½ºÅÛ@@@");
+		System.out.println(" @@@ ï¿½Î¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ ï¿½Ã½ï¿½ï¿½ï¿½@@@");
 		System.out.println("==================================================================");
 
 		pManager.fillPersons(persons);
 
 		pManager.showPerson(persons);
 
-		char gender = '¿©';
+		char gender = 'ì—¬';
 
-		System.out.printf("¼ºº° : \' %c \' (Àº)´Â %d ÀÔ´Ï´Ù%n", gender, pManager.findbyGender(persons, gender));
+		System.out.printf("ï¿½ï¿½ï¿½ï¿½ : \' %c \' (ï¿½ï¿½)ï¿½ï¿½ %d ï¿½Ô´Ï´ï¿½%n", gender, pManager.findbyGender(persons, gender));
 
 		pManager.printTileLine();
 		
-		String name2 = "±èÇÏ´Ã";
+		String name2 = "ï¿½ï¿½ï¿½Ï´ï¿½";
 		pManager.showPerson2(name2);
 		
 		pManager.printItemLine();
 		
-		String name = "±èÇÏ´Ã";
+		String name = "ï¿½ï¿½ï¿½Ï´ï¿½";
 	
 				
 		pManager.showPerson(persons, name);
 
 	} // main
 
-	// ¹è¿­ÀÇ °ªÀ» ÃÊ±âÈ­
+	// ï¿½è¿­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 	public void fillPersons(PersonEntity[] persons) {
-		persons[0] = new PersonEntity("ÀÌ¼ºÈ£", "7212121028102", "ÀÎÃµ °è¾ç±¸", "032-392-2932");
-		persons[1] = new PersonEntity("±èÇÏ´Ã", "7302132363217", "¼­¿ï °­µ¿±¸", "02-362-1932");
-		persons[2] = new PersonEntity("¹Ú¿µ¼ö", "7503111233201", "¼­¿ï ¼ººÏ±¸", "02-887-1542");
-		persons[3] = new PersonEntity("³ªÀÎ¼ö", "7312041038988", "´ëÀü À¯¼º±¸", "032-384-2223");
-		persons[4] = new PersonEntity("È«Á¤¼ö", "7606221021341", "¼­¿ï ¾çÃµ±¸", "02-158-7333");
-		persons[5] = new PersonEntity("ÀÌ¹Ì¼÷", "7502142021321", "¼­¿ï °­¼­±¸", "02-323-1934");
-		persons[6] = new PersonEntity("¹Ú¼º±¸", "7402061023101", "¼­¿ï Á¾·Î±¸", "02-308-0932");
-		persons[7] = new PersonEntity("À¯¼º¹Ì", "7103282025101", "¼­¿ï ÀºÆò±¸", "02-452-0939");
-		persons[8] = new PersonEntity("È²ÀçÇö", "7806231031101", "ÀÎÃµ Áß±¸", "032-327-2202");
-		persons[9] = new PersonEntity("ÃÖÃ¶¼ö", "7601211025101", "ÀÎÃµ °è¾ç±¸", "032-122-7832");
+		persons[0] = new PersonEntity("ï¿½Ì¼ï¿½È£", "7212121028102", "ï¿½ï¿½Ãµ ï¿½ï¿½ç±¸", "032-392-2932");
+		persons[1] = new PersonEntity("ï¿½ï¿½ï¿½Ï´ï¿½", "7302132363217", "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", "02-362-1932");
+		persons[2] = new PersonEntity("ï¿½Ú¿ï¿½ï¿½ï¿½", "7503111233201", "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½", "02-887-1542");
+		persons[3] = new PersonEntity("ï¿½ï¿½ï¿½Î¼ï¿½", "7312041038988", "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", "032-384-2223");
+		persons[4] = new PersonEntity("È«ï¿½ï¿½ï¿½ï¿½", "7606221021341", "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ãµï¿½ï¿½", "02-158-7333");
+		persons[5] = new PersonEntity("ï¿½Ì¹Ì¼ï¿½", "7502142021321", "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", "02-323-1934");
+		persons[6] = new PersonEntity("ï¿½Ú¼ï¿½ï¿½ï¿½", "7402061023101", "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î±ï¿½", "02-308-0932");
+		persons[7] = new PersonEntity("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", "7103282025101", "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½", "02-452-0939");
+		persons[8] = new PersonEntity("È²ï¿½ï¿½ï¿½ï¿½", "7806231031101", "ï¿½ï¿½Ãµ ï¿½ß±ï¿½", "032-327-2202");
+		persons[9] = new PersonEntity("ï¿½ï¿½Ã¶ï¿½ï¿½", "7601211025101", "ï¿½ï¿½Ãµ ï¿½ï¿½ç±¸", "032-122-7832");
 
 	} //
 
-//	 °¢ ¹è¿­ÀÇ °ª Ãâ·ÂÇÏ±â
+//	 ï¿½ï¿½ ï¿½è¿­ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
 	public void showPerson(PersonEntity[] persons) {
 //		for (int i = 0; i < persons.length; i++) {
 //			x = persons[i]
@@ -69,7 +69,7 @@ public class PersonManager {
 //		}
 //		persons[i] = i
 		for (PersonEntity i : persons) {
-			System.out.printf("[ÀÌ¸§] %s    [¼ºº°] %s    [ÀüÈ­¹øÈ£] %s    [ÁÖ¼Ò] %s%n", i.getName(), i.getGender(), i.getPhone(),
+			System.out.printf("[ï¿½Ì¸ï¿½] %s    [ï¿½ï¿½ï¿½ï¿½] %s    [ï¿½ï¿½È­ï¿½ï¿½È£] %s    [ï¿½Ö¼ï¿½] %s%n", i.getName(), i.getGender(), i.getPhone(),
 					i.getAddress());
 			printItemLine();
 
@@ -91,10 +91,10 @@ public class PersonManager {
 
 	}
 
-//	showPerson(PersonEntity[] persons, String name)À» È£ÃâÇÏ¿© Æ¯Á¤ personÀÇ »ó¼¼Á¤º¸¸¦ display
-//	ÇÑ´Ù. ÀÌ¶§ ÀÌ¸§ Á¤º¸´Â ¡°±èÇÏ´Ã¡± ·Î ÇÑ´Ù.
+//	showPerson(PersonEntity[] persons, String name)ï¿½ï¿½ È£ï¿½ï¿½ï¿½Ï¿ï¿½ Æ¯ï¿½ï¿½ personï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ display
+//	ï¿½Ñ´ï¿½. ï¿½Ì¶ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´Ã¡ï¿½ ï¿½ï¿½ ï¿½Ñ´ï¿½.
 	public void showPerson2(String name2) {
-		System.out.printf("-- ÀÌ¸§ : \' %s \' (À¸)·Î Ã£±â °á°úÀÔ´Ï´Ù. --%n" , name2);
+		System.out.printf("-- ï¿½Ì¸ï¿½ : \' %s \' (ï¿½ï¿½)ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½. --%n" , name2);
 	}
 	
 	
@@ -105,7 +105,7 @@ public class PersonManager {
 		
 		for (PersonEntity C : persons) {
 			if (name == C.getName()) {
-				System.out.printf("[ÀÌ¸§] %s%n[¼ºº°] %s%n[ÀüÈ­¹øÈ£] %s%n[ÁÖ¼Ò] %s%n", C.getName(), C.getGender(), C.getPhone(),
+				System.out.printf("[ï¿½Ì¸ï¿½] %s%n[ï¿½ï¿½ï¿½ï¿½] %s%n[ï¿½ï¿½È­ï¿½ï¿½È£] %s%n[ï¿½Ö¼ï¿½] %s%n", C.getName(), C.getGender(), C.getPhone(),
 						C.getAddress());
 
 			}

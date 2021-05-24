@@ -11,14 +11,14 @@ import java.sql.Statement;
 public class TestJDBCPreparedStatement {
 	public static void main(String[] args) {
 		if(args.length < 3) {
-			System.out.println("¾Æ±Ô¸ÕÆ®¸¦ ÀÔ·ÂÇÏ°í ½ÇÇàÇÏ¼¼¿ä");
+			System.out.println("ì•„ê·œë¨¼íŠ¸ë¥¼ ì…ë ¥í•˜ê³  ì‹¤í–‰í•˜ì„¸ìš”");
 			System.exit(0);
 		}
-		//¾÷¹«¸í
+		//ì—…ë¬´ëª…
 		String jobName = args[0];
-		//±Ş¿© String -> float º¯È¯
+		//ê¸‰ì—¬ String -> float ë³€í™˜
 		float salary = Float.parseFloat(args[1]);
-		//»ç¿ø¹øÈ£ String -> int º¯È¯
+		//ì‚¬ì›ë²ˆí˜¸ String -> int ë³€í™˜
 		int empNo = Integer.parseInt(args[2]);
 	
 		updateEmp(jobName,salary,empNo);
@@ -26,14 +26,14 @@ public class TestJDBCPreparedStatement {
 	}//main
 
 	private static void updateEmp(String job,float sal,int no) {
-		//1. JDBC Driver °´Ã¼»ı¼º
+		//1. JDBC Driver ê°ì²´ìƒì„±
 		//Unhandled exception type ClassNotFoundException
-		//try / catch ±¸¹® »ç¿ë
+		//try / catch êµ¬ë¬¸ ì‚¬ìš©
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
-			System.out.println("Driver Loading ¼º°ø");
+			System.out.println("Driver Loading ì„±ê³µ");
 		} catch (ClassNotFoundException e) {
-			System.err.println("¿¡·¯ ¸Ş½ÃÁö " + e.getMessage());
+			System.err.println("ì—ëŸ¬ ë©”ì‹œì§€ " + e.getMessage());
 			e.printStackTrace();
 		}
 		//mysql 
@@ -46,10 +46,10 @@ public class TestJDBCPreparedStatement {
 		PreparedStatement statement = null;
 		PreparedStatement statement2 = null;
 		try {
-			//2. Connection(DB¿Í ¿¬°á) °´Ã¼»ı¼º
+			//2. Connection(DBì™€ ì—°ê²°) ê°ì²´ìƒì„±
 			connection = DriverManager.getConnection(url, user, password);
 			System.out.println(connection.getClass().getName());
-			//3. Statement(SQL¹® Àü¼Û) °´Ã¼»ı¼º
+			//3. Statement(SQLë¬¸ ì „ì†¡) ê°ì²´ìƒì„±
 			StringBuilder builder = new StringBuilder();
 			builder.append("update emp set job=?,")
 				   .append(" sal=?")
@@ -57,24 +57,24 @@ public class TestJDBCPreparedStatement {
 			String sql = builder.toString();
 			System.out.println("update SQL => " + sql);
 			
-			//PreparedStatement¸¦ »ı¼º
+			//PreparedStatementë¥¼ ìƒì„±
 			statement = connection.prepareStatement(sql);
-			//SQL¹®ÀÇ ÆÄ¶ó¹ÌÅÍ¿¡ °ªÀ» ¼³Á¤
+			//SQLë¬¸ì˜ íŒŒë¼ë¯¸í„°ì— ê°’ì„ ì„¤ì •
 			statement.setString(1, job);
 			statement.setFloat(2, sal);
 			statement.setInt(3, no);
 			
-			//4. update SQL¹® ½ÇÇà
+			//4. update SQLë¬¸ ì‹¤í–‰
 			int rowCnt = statement.executeUpdate();
-			System.out.println("°»½ÅµÈ °Ç¼ö : " + rowCnt);
-			//4.1 select SQL¹® ½ÇÇà
+			System.out.println("ê°±ì‹ ëœ ê±´ìˆ˜ : " + rowCnt);
+			//4.1 select SQLë¬¸ ì‹¤í–‰
 			String selectSql = 
 	"select empno,ename,job,hiredate,sal,comm from emp where empno=?";
 			//Statement stmt = connection.createStatement();
 			//Resource leak: 'statement' is not closed at this location
 			statement2 = 
 					connection.prepareStatement(selectSql);
-			//»ç¿ø¹øÈ£ ÆÄ¶ó¹ÌÅÍ ¼³Á¤
+			//ì‚¬ì›ë²ˆí˜¸ íŒŒë¼ë¯¸í„° ì„¤ì •
 			statement2.setInt(1, no);
 			
 			ResultSet rs = statement2.executeQuery();
